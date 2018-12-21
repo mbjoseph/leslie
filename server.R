@@ -1,7 +1,7 @@
-require(shiny)
+library(shiny)
 
-shinyServer(function(input, output) {
-  calcs <- reactive(function(){
+server <- function(input, output) {
+  calcs <- reactive({
     A0 <- matrix(0, nrow=4, ncol=4)
     A0[1, 2] <- input$fc2 # fecundity, class 2
     A0[1, 3] <- input$fc3 # fecundity, class 3
@@ -35,34 +35,39 @@ shinyServer(function(input, output) {
       px[,t] <- x[, t]/Nt[t]
     }
     
-   list(A0=A0, emat=emat, x=x, Nt=Nt, px=px, Lambda=lambda)
+    list(A0=A0, emat=emat, x=x, Nt=Nt, px=px, Lambda=lambda)
   })
-
-  output$elastTab <- reactiveTable(function(){
-   calcs()$emat
-   }
+  
+  output$elastTab <- renderTable({
+    calcs()$emat
+  }
   )
   
-  output$Lesliemat <- reactiveTable(function(){
+  output$Lesliemat <- renderTable({
     calcs()$A0
-    }
+  }
   )
   
-  output$plot <- reactivePlot(function(){
+  output$plot <- renderPlot({
     out <- calcs()
-    with(out, {
-      title <- substitute(paste("Dominant eigenvalue = ", Lambda,
-                                 sep=""), list(Lambda=as.numeric(Lambda)))
-         plot(x=1:ncol(x), y=Nt, type="l", xlab="Time", ylab="Log(population size)", lty=2, log="y", 
-              main=title)
-         lines(x=1:ncol(x), y=x[1, ], col="purple")
-         lines(x=1:ncol(x), y=x[2, ], col="red")
-         lines(x=1:ncol(x), y=x[3, ], col="dark orange")
-         lines(x=1:ncol(x), y=x[4, ], col="blue")
-         ypos <- max(abs(Nt), na.rm=T)
-         legend(x=1, y=ypos, c("Class 1", "Class 2", "Class 3", "Class 4"), 
-                col=c("purple", "red", "dark orange", "blue"),
-                text.col="black", lty=c(1, 1, 1, 1))
-    })
+    title <- paste("Dominant eigenvalue = ", round(Re(out$Lambda), 3))
+    time_seq <- 1:ncol(out$x)
+    plot(x=time_seq, 
+         y=out$Nt, 
+         type="l", 
+         xlab="Time", 
+         ylab="Log(population size)", 
+         lty=2, 
+         log="y", 
+         main=title)
+    colors <- c('purple', 'red', 'dark orange', 'blue')
+    for (i in seq_along(colors)) {
+      lines(time_seq, y = out$x[i, ], col = colors[i])
+    }
+    ypos <- max(abs(out$Nt), na.rm=TRUE)
+    legend(x=1, y=ypos, c("Class 1", "Class 2", "Class 3", "Class 4"), 
+           col=c("purple", "red", "dark orange", "blue"),
+           text.col="black", lty=c(1, 1, 1, 1))
   })
-})
+}
+

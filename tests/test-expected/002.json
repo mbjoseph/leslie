@@ -1,0 +1,53 @@
+{
+  "input": {
+    "fc2": 1,
+    "fc3": 0,
+    "fc4": 100,
+    "sp4": 0.7,
+    "timesteps": 50,
+    "tp1": 0.1,
+    "tp2": 0.5,
+    "tp3": 0.9
+  },
+  "output": {
+    "elastTab": "<table  class = 'table shiny-table table- spacing-s' style = 'width:auto;'>\n<thead> <tr> <th style='text-align: right;'> Class 1 <\/th> <th style='text-align: right;'> Class 2 <\/th> <th style='text-align: right;'> Class 3 <\/th> <th style='text-align: right;'> Class 4 <\/th>  <\/tr> <\/thead> <tbody>\n  <tr> <td align=\"right\"> 0.00 <\/td> <td align=\"right\"> 0.01 <\/td> <td align=\"right\"> 0.00 <\/td> <td align=\"right\"> 0.21 <\/td> <\/tr>\n  <tr> <td align=\"right\"> 0.22 <\/td> <td align=\"right\"> 0.00 <\/td> <td align=\"right\"> 0.00 <\/td> <td align=\"right\"> 0.00 <\/td> <\/tr>\n  <tr> <td align=\"right\"> 0.00 <\/td> <td align=\"right\"> 0.21 <\/td> <td align=\"right\"> 0.00 <\/td> <td align=\"right\"> 0.00 <\/td> <\/tr>\n  <tr> <td align=\"right\"> 0.00 <\/td> <td align=\"right\"> 0.00 <\/td> <td align=\"right\"> 0.21 <\/td> <td align=\"right\"> 0.15 <\/td> <\/tr>\n   <\/tbody> <\/table>",
+    "Lesliemat": "<table  class = 'table shiny-table table- spacing-s' style = 'width:auto;'>\n<thead> <tr> <th style='text-align: right;'> Class 1 <\/th> <th style='text-align: right;'> Class 2 <\/th> <th style='text-align: right;'> Class 3 <\/th> <th style='text-align: right;'> Class 4 <\/th>  <\/tr> <\/thead> <tbody>\n  <tr> <td align=\"right\"> 0.00 <\/td> <td align=\"right\"> 1.00 <\/td> <td align=\"right\"> 0.00 <\/td> <td align=\"right\"> 100.00 <\/td> <\/tr>\n  <tr> <td align=\"right\"> 0.10 <\/td> <td align=\"right\"> 0.00 <\/td> <td align=\"right\"> 0.00 <\/td> <td align=\"right\"> 0.00 <\/td> <\/tr>\n  <tr> <td align=\"right\"> 0.00 <\/td> <td align=\"right\"> 0.50 <\/td> <td align=\"right\"> 0.00 <\/td> <td align=\"right\"> 0.00 <\/td> <\/tr>\n  <tr> <td align=\"right\"> 0.00 <\/td> <td align=\"right\"> 0.00 <\/td> <td align=\"right\"> 0.90 <\/td> <td align=\"right\"> 0.70 <\/td> <\/tr>\n   <\/tbody> <\/table>",
+    "plot": {
+      "src": "[image data sha1: 8b6a2b286ab33dd858a0418ca5f472d0dd1726d7]",
+      "width": 631,
+      "height": 400,
+      "coordmap": {
+        "panels": [
+          {
+            "domain": {
+              "left": -0.96,
+              "right": 51.96,
+              "bottom": -0.727307806163884,
+              "top": 11.8997955766056
+            },
+            "range": {
+              "left": 59.04,
+              "right": 600.76,
+              "bottom": 325.56,
+              "top": 58.04
+            },
+            "log": {
+              "x": null,
+              "y": 10
+            },
+            "mapping": {
+
+            }
+          }
+        ],
+        "dims": {
+          "width": 631,
+          "height": 400
+        }
+      }
+    }
+  },
+  "export": {
+
+  }
+}
